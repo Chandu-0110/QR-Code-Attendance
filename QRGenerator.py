@@ -1,8 +1,11 @@
 import qrcode
 
+# Read the whitelist file and strip newlines
 with open('../whitelist.txt', 'r') as f:
-    authorized = [l[:-1] for l in f.readlines() if len(l)>2]
+    authorized = [line.strip() for line in f if len(line.strip()) > 2]
 
-for i in range(len(authorized)):
-    qr = qrcode.make(authorized[i])
-    qr.save(authorized[i])
+# Generate and save a QR code for each authorized entry
+for entry in authorized:
+    qr = qrcode.make(entry)
+    qr.save(f"{entry}.png")
+
