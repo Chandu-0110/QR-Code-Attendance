@@ -37,7 +37,7 @@ while True:
                     f.write('{},{}\n'.format(data.decode(), datetime.datetime.now()))
                     f.close()
         else:
-            cv2.putText(frame, data.decode(), (rect.left, rect.top - 10), cv2.FONT_HERSHEY_SIMPLEX, 1,
+            cv2.putText(frame, 'ACCESS DENIED', (rect.left, rect.top - 10), cv2.FONT_HERSHEY_SIMPLEX, 1,
                         (0, 0, 255), 2)
         frame = cv2.rectangle(frame, (rect.left, rect.top), (rect.left + rect.width, rect.top + rect.height), (0, 255, 0),
                             5)
